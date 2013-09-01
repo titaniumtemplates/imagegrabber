@@ -1,11 +1,13 @@
 Ti.include('/lib/imagegrabber.js');
 
 var test_urls = new Array();
-test_urls.push("http://www.collegeonline.org");
-test_urls.push("http://www.morethanthemes.com");
+test_urls.push("http://news.yahoo.com/kerry-sarin-syria-assad-140543565.html");
+test_urls.push("http://sports.yahoo.com/blogs/nfl-shutdown-corner/pam-oliver-suffered-serious-concussion-symptoms-five-days-150415828--nfl.html");
 test_urls.push("http://music.yahoo.com/news/electric-zoo-canceled-two-deaths-during-festival-134023883-rolling-stone.html");
 
-var url = test_urls[2];
+// HINT: In order to test several url 
+//       change the index below:
+var url = test_urls[0];
 
 //Application Window Component Constructor
 function ApplicationWindow() {
