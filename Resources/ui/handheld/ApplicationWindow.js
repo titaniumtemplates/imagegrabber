@@ -27,13 +27,19 @@ function ApplicationWindow() {
 		var descriptor;
 		var infos = [];
 		images.forEach(function(src) {
-			Ti.API.info('>> src ........: ' + src);
+			Ti.API.info('');
+			Ti.API.info('>>> src ..: ' + src);
 			var i = imagegrabber.info(src);
-			Ti.API.info('>>     ........: ' + JSON.stringify(i));
+			Ti.API.info('> height =' + i.height);
+			Ti.API.info('> width  =' + i.width);
+			Ti.API.info('> area   =' + i.area);
+			Ti.API.info('> ........: ' + JSON.stringify(i));
 			infos.push(i);
 		});
 		var big = imagegrabber.bigimage(infos);
-		Ti.API.info('>> big image........: ' + JSON.stringify(big));
+		Ti.API.info('');
+		Ti.API.info('>>> big image');
+		Ti.API.info('>   ' + JSON.stringify(big));
 
 		var image = Ti.UI.createImageView({
 	  			image: big.url,

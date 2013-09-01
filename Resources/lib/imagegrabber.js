@@ -61,10 +61,6 @@ exports.info = function(image_url){
 	info.width = imageSize.width;
 	info.area = info.height * info.width;
 	
-	Ti.API.info( "height =" + info.height);
-	Ti.API.info( "width  =" + info.width);
-	Ti.API.info( "area   =" + info.area);
-	
 	imageTemp = imageSize = null;
 	
 	return info;
