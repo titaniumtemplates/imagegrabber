@@ -6,10 +6,18 @@ function FirstView() {
 	//label using localization-ready strings from <app dir>/i18n/en/strings.xml
 	var label = Ti.UI.createLabel({
 		color:'#000000',
-		text: 'Please check the logs for details.',
+		text: 'Click on the screen to load the next image.',
 		height:'auto',
 		width:'auto',
 		top: 20
+	});
+	self.add(label);
+	var label = Ti.UI.createLabel({
+		color:'#000000',
+		text: 'Please check the logs for details.',
+		height:'auto',
+		width:'auto',
+		bottom: 20
 	});
 	self.add(label);
 		
