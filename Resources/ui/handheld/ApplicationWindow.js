@@ -51,25 +51,27 @@ function ApplicationWindow() {
 
 function grabimage(){
 	var callback = function(images){
-		var descriptor;
-		var infos = [];
-		images.forEach(function(src) {
-			Ti.API.info(' ');
-			Ti.API.info('>>> src ..: ' + src);
-			var i = imagegrabber.info(src);
-			Ti.API.info('> height =' + i.height);
-			Ti.API.info('> width  =' + i.width);
-			Ti.API.info('> area   =' + i.area);
-			Ti.API.info('> ........: ' + JSON.stringify(i));
-			infos.push(i);
-		});
+		// var descriptor;
+		// var infos = [];
+		// images.forEach(function(src) {
+			// Ti.API.info(' ');
+			// Ti.API.info('>>> src ..: ' + src);
+			// var i = imagegrabber.info(src);
+			// Ti.API.info('> height =' + i.height);
+			// Ti.API.info('> width  =' + i.width);
+			// Ti.API.info('> area   =' + i.area);
+			// Ti.API.info('> ........: ' + JSON.stringify(i));
+			// infos.push(i);
+		// });
+// 		
+		// var filtered = imagegrabber.filter(infos);
+// 		
+		// var big = imagegrabber.bigimage(filtered);
+		// Ti.API.info(' ');
+		// Ti.API.info('>>> big image');
+		// Ti.API.info('>   ' + JSON.stringify(big));
 		
-		var filtered = imagegrabber.filter(infos);
-		
-		var big = imagegrabber.bigimage(filtered);
-		Ti.API.info(' ');
-		Ti.API.info('>>> big image');
-		Ti.API.info('>   ' + JSON.stringify(big));
+		var big = imagegrabber.suggestion(images);
 
 		if (big != undefined){
 			imageview = Ti.UI.createImageView({

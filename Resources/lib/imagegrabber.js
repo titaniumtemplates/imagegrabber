@@ -86,7 +86,7 @@ exports.grab = function(url, callback){
 // 	
 };
 
-exports.info = function(image_url){
+function info(image_url){
 	var imageTemp = Ti.UI.createImageView({
 		image : image_url,
 		// height:'auto',
@@ -94,7 +94,7 @@ exports.info = function(image_url){
 		height:'auto',
 		width:10
 	});
-	imageSize = imageTemp.toImage();
+	var imageSize = imageTemp.toImage();
 	
 	var info = {};
 	info.url = image_url;
@@ -106,6 +106,8 @@ exports.info = function(image_url){
 	
 	return info;
 };
+
+exports.info = info;
 
 // tmpData.sort(compare);
 // a,b: image info objects
@@ -144,11 +146,37 @@ exports.filter = filter;
 
 // returns the bigest image 
 // from an array of image infos
-exports.bigimage = function (infos) {
+function bigimage(infos) {
 	infos.sort(compare);
     return infos[0];
 };
 
+exports.bigimage = bigimage;
+
+exports.suggestion = function(img_ulrs){
+		var descriptor;
+		var infos = [];
+		img_ulrs.forEach(function(src) {
+			Ti.API.info(' ');
+			Ti.API.info('>>> src ..: ' + src);
+			//TODO: make info call asynch.
+			var i = info(src);
+			Ti.API.info('> height =' + i.height);
+			Ti.API.info('> width  =' + i.width);
+			Ti.API.info('> area   =' + i.area);
+			Ti.API.info('> ........: ' + JSON.stringify(i));
+			infos.push(i);
+		});
+		
+		var filtered = filter(infos);
+		
+		var big = bigimage(filtered);
+		Ti.API.info(' ');
+		Ti.API.info('>>> big image');
+		Ti.API.info('>   ' + JSON.stringify(big));
+		
+		return big;
+};
 
 function APIGetRequest(url, callback, errorCallback) {
 	var req = Titanium.Network.createHTTPClient({
